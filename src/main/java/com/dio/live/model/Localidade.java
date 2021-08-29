@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Data
 @NoArgsConstructor
@@ -14,9 +14,9 @@ import javax.persistence.OneToMany;
 public class Localidade {
 
     private long id;
-
-    @OneToMany
-    private NivelAcesso nivelAcesso;
     private String descricao;
+
+    @ManyToOne
+    private NivelAcesso nivelAcesso;
 
 }
