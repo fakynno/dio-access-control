@@ -28,7 +28,6 @@ public class BancoHoras {
     @EmbeddedId
     private BancoHorasId id;
     @ManyToOne
-    private CategoriaUsuario categoriaUsuario;
     private LocalDateTime dataTrabalhada;
     private BigDecimal qtdHorasTrabalhadas;
     private BigDecimal saldoHorasTrabalhadas;
