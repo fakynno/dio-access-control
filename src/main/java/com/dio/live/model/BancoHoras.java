@@ -2,9 +2,7 @@ package com.dio.live.model;
 
 import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -13,6 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class BancoHoras {
 
     @AllArgsConstructor
@@ -25,9 +24,9 @@ public class BancoHoras {
         private long idUsuario;
     }
 
+
     @EmbeddedId
     private BancoHorasId id;
-    @ManyToOne
     private LocalDateTime dataTrabalhada;
     private BigDecimal qtdHorasTrabalhadas;
     private BigDecimal saldoHorasTrabalhadas;
