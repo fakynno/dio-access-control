@@ -13,5 +13,8 @@ public class JornadaService {
         return jornadaRepository.save(jornadaDeTrabalho);
     }
 
+    public JornadaDeTrabalho updateJornada(JornadaDeTrabalho jornadaDeTrabalho) {
+        return jornadaRepository.save(jornadaDeTrabalho);
+    }
 
 }
