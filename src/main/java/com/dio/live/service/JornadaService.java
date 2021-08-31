@@ -5,6 +5,7 @@ import com.dio.live.repository.JornadaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JornadaService {
@@ -25,6 +26,10 @@ public class JornadaService {
 
     public void deleteJornada(Long id) {
         jornadaRepository.deleteById(id);
+    }
+
+    public Optional<JornadaDeTrabalho> getById(Long idJornada) {
+        return jornadaRepository.findById(idJornada);
     }
 
 }
