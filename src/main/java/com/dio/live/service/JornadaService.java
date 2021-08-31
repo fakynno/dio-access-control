@@ -23,4 +23,8 @@ public class JornadaService {
         return jornadaRepository.findAll();
     }
 
+    public void deleteJornada(Long id) {
+        jornadaRepository.deleteById(id);
+    }
+
 }
