@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/jornada")
@@ -30,7 +31,23 @@ public class JornadaTrabalhoController {
         return ResponseEntity.ok(jornadaService
                 .getById(idJornada)
                 .orElseThrow(
-                        () -> new Exception("Id não encontrado")));
+                        () -> new NoSuchElementException("Id não encontrado")));
+
+    }
+
+    @PutMapping
+    public JornadaDeTrabalho updateJornada(@RequestBody JornadaDeTrabalho jornadaDeTrabalho) {
+        return jornadaService.updateJornada(jornadaDeTrabalho);
+    }
+
+    @DeleteMapping("/{idJornada}")
+    public ResponseEntity deleteById(@PathVariable("idJornada") Long idJornada) throws Exception {
+        try {
+            jornadaService.deleteJornada(idJornada);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return (ResponseEntity<JornadaDeTrabalho>) ResponseEntity.ok();
     }
 
 }
